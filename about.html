@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>About Us - I TECH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+  <header>
+  <div class="logo">
+    <img src="ChatGPT Image Jul 5, 2025, 04_02_33 PM.png" alt="I TECH Logo">
+    <h1>I TECH</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- About Us Section -->
+  <section class="about">
+    <h2>About I TECH</h2>
+    <p>I TECH is a technology-driven startup focused on delivering high-quality digital solutions. We specialize in web development, software engineering, and mobile app development for clients around the world.</p>
+
+    <h3>Our Mission</h3>
+    <p>To empower businesses with innovative, scalable, and reliable digital solutions that help them grow and succeed in the modern world.</p>
+
+    <h3>Our Vision</h3>
+    <p>To be a leading tech company known for creativity, trust, and quality across global markets.</p>
+
+    <h3>Why Choose I TECH?</h3>
+    <ul>
+      <li>✅ Professional and skilled development team</li>
+      <li>✅ Modern and user-focused designs</li>
+      <li>✅ Fast delivery and excellent support</li>
+    </ul>
+  </section>
+  <section class="home-services fade-in">...</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 I TECH. All rights reserved.</p>
+  </footer>
+
+  <script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("appear");
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+
+</body>
+</html>

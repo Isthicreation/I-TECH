@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I TECH - Innovating the Future</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+ <header>
+  <div class="logo">
+    <img src="ChatGPT Image Jul 5, 2025, 04_02_33 PM.png" alt="I TECH Logo">
+    <h1>I TECH</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Innovating the Future</h2>
+    <p>We build websites, software, and mobile apps that drive success.</p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </section>
+  <!-- Hero Section -->
+<section class="hero-banner">
+  <img src="ChatGPT Image Jul 5, 2025, 09_24_47 PM.png" alt="I TECH Hero Banner">
+</section>
+
+<section class="home-services fade-in">...</section>
+
+
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-box">
+      <h3>Web Development</h3>
+      <p>Modern, responsive websites tailored to your business needs.</p>
+    </div>
+    <div class="service-box">
+      <h3>Software Development</h3>
+      <p>Custom software solutions for desktop and enterprise use.</p>
+    </div>
+    <div class="service-box">
+      <h3>Mobile App Development</h3>
+      <p>Android and iOS apps built for performance and design.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 I TECH. All rights reserved.</p>
+  </footer>
+  <script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("appear");
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+
+</body>
+</html>
+  

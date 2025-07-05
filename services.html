@@ -1,0 +1,81 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Our Services - I TECH</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header -->
+ <header>
+  <div class="logo">
+    <img src="ChatGPT Image Jul 5, 2025, 04_02_33 PM.png" alt="I TECH Logo">
+    <h1>I TECH</h1>
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+    </ul>
+  </nav>
+</header>
+
+  <!-- Services Section -->
+  <section class="services-page">
+    <h2>What We Do</h2>
+
+    <div class="service-card">
+      <h3>🌐 Web Development</h3>
+      <p>We create modern, responsive websites using the latest technologies like HTML5, CSS3, JavaScript, and frameworks such as React, Bootstrap, and Django. Whether it's a business site, portfolio, or e-commerce store — we've got you covered.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>💻 Software Development</h3>
+      <p>Our team develops custom software solutions for desktops, enterprises, and cloud systems. We focus on clean code, user experience, and reliability to meet your specific needs.</p>
+    </div>
+
+    <div class="service-card">
+      <h3>📱 Mobile App Development</h3>
+      <p>We build powerful Android and iOS apps using tools like Flutter and React Native. From idea to app store, we support you through the whole mobile journey.</p>
+    </div>
+  </section>
+  <section class="home-services fade-in">...</section>
+
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 I TECH. All rights reserved.</p>
+  </footer>
+<script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("appear");
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+</body>
+</html>
