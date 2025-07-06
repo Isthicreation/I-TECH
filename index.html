@@ -2,6 +2,8 @@
 <html lang="en">
 <head>
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!-- AOS Scroll Animation Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
 
   <style>
   html {
@@ -43,7 +45,37 @@
   <!-- Hero Section -->
 <section class="hero-banner">
   <img src="ChatGPT Image Jul 5, 2025, 09_24_47 PM.png" alt="I TECH Hero Banner">
+  <h1 class="typewriter-text"></h1>
+
 </section>
+
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+
+  <div class="testimonial-container">
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card" data-aos="fade-up">
+      <p>"I TECH helped us build a modern, fast website. The team was professional and responsive!"</p>
+      <h4>John D.</h4>
+      <span>Startup CEO</span>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+      <p>"The mobile app they delivered was top quality — exactly what our business needed."</p>
+      <h4>Sarah K.</h4>
+      <span>App Client</span>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+      <p>"Reliable, creative, and fast. Highly recommend I TECH for any software project!"</p>
+      <h4>Ali M.</h4>
+      <span>Business Owner</span>
+    </div>
+  </div>
+</section>
+
 
 <section class="home-services fade-in">...</section>
 
@@ -96,6 +128,49 @@
   <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat">
 </a>
 
+
+<script>
+  const messages = [
+    "We Build Websites 💻",
+    "We Build Software ⚙️",
+    "We Build Mobile Apps 📱"
+  ];
+  
+  let i = 0;
+  let j = 0;
+  let currentText = "";
+  let isDeleting = false;
+
+  const typewriter = () => {
+    const display = document.querySelector(".typewriter-text");
+
+    if (!display) return;
+
+    currentText = messages[i];
+
+    if (isDeleting) {
+      display.textContent = currentText.substring(0, j--);
+      if (j < 0) {
+        isDeleting = false;
+        i = (i + 1) % messages.length;
+      }
+    } else {
+      display.textContent = currentText.substring(0, j++);
+      if (j > currentText.length + 10) {
+        isDeleting = true;
+      }
+    }
+
+    setTimeout(typewriter, isDeleting ? 60 : 100);
+  };
+
+  typewriter();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
 
 
 </body>
