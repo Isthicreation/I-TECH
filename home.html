@@ -1,0 +1,218 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+<!-- AOS Scroll Animation Library -->
+<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <style>
+  html {
+    scroll-behavior: smooth;
+  }
+</style>
+
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>I TECH - Innovating the Future</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+  <!-- Header Section -->
+ <header>
+  <div class="logo">
+    <img src="ChatGPT Image Jul 5, 2025, 04_02_33 PM.png" alt="I TECH Logo">
+    
+
+  
+    <h1>I TECH</h1>
+    <button id="theme-toggle" aria-label="Toggle dark mode">🌙</button>
+
+  </div>
+  <nav>
+    <ul>
+      <li><a href="index.html">Home</a></li>
+      <li><a href="services.html">Services</a></li>
+      <li><a href="about.html">About</a></li>
+      <li><a href="contact.html">Contact</a></li>
+      <a href="projects.html">Portfolio</a>
+
+    </ul>
+  </nav>
+</header>
+
+  <!-- Hero Section -->
+  <section class="hero">
+    <h2>Innovating the Future</h2>
+    <p>We build websites, software, and mobile apps that drive success.</p>
+    <a href="#contact" class="btn">Get in Touch</a>
+  </section>
+  <!-- Hero Section -->
+<section class="hero-banner">
+  <img src="ChatGPT Image Jul 5, 2025, 09_24_47 PM.png" alt="I TECH Hero Banner">
+  <h1 class="typewriter-text"></h1>
+
+</section>
+
+<section class="testimonials">
+  <h2>What Our Clients Say</h2>
+
+  <div class="testimonial-container">
+    <!-- Testimonial 1 -->
+    <div class="testimonial-card" data-aos="fade-up">
+      <p>"I TECH helped us build a modern, fast website. The team was professional and responsive!"</p>
+      <h4>John D.</h4>
+      <span>Startup CEO</span>
+    </div>
+
+    <!-- Testimonial 2 -->
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
+      <p>"The mobile app they delivered was top quality — exactly what our business needed."</p>
+      <h4>Sarah K.</h4>
+      <span>App Client</span>
+    </div>
+
+    <!-- Testimonial 3 -->
+    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
+      <p>"Reliable, creative, and fast. Highly recommend I TECH for any software project!"</p>
+      <h4>Ali M.</h4>
+      <span>Business Owner</span>
+    </div>
+  </div>
+</section>
+
+
+<section class="home-services fade-in">...</section>
+
+
+
+  <!-- Services Section -->
+  <section class="services">
+    <h2>Our Services</h2>
+    <div class="service-box">
+      <h3>Web Development</h3>
+      <p>Modern, responsive websites tailored to your business needs.</p>
+    </div>
+    <div class="service-box">
+      <h3>Software Development</h3>
+      <p>Custom software solutions for desktop and enterprise use.</p>
+    </div>
+    <div class="service-box">
+      <h3>Mobile App Development</h3>
+      <p>Android and iOS apps built for performance and design.</p>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer>
+    <p>&copy; 2025 I TECH. All rights reserved.</p>
+  </footer>
+  <script>
+  const faders = document.querySelectorAll('.fade-in');
+
+  const appearOptions = {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  };
+
+  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
+    entries.forEach(entry => {
+      if (!entry.isIntersecting) return;
+      entry.target.classList.add("appear");
+      observer.unobserve(entry.target);
+    });
+  }, appearOptions);
+
+  faders.forEach(fader => {
+    appearOnScroll.observe(fader);
+  });
+</script>
+
+<!-- WhatsApp Chat Button -->
+<a href="https://wa.me/94778680628" class="whatsapp-float" target="_blank">
+  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat">
+</a>
+
+
+<script>
+  const messages = [
+    "We Build Websites 💻",
+    "We Build Software ⚙️",
+    "We Build Mobile Apps 📱"
+  ];
+  
+  let i = 0;
+  let j = 0;
+  let currentText = "";
+  let isDeleting = false;
+
+  const typewriter = () => {
+    const display = document.querySelector(".typewriter-text");
+
+    if (!display) return;
+
+    currentText = messages[i];
+
+    if (isDeleting) {
+      display.textContent = currentText.substring(0, j--);
+      if (j < 0) {
+        isDeleting = false;
+        i = (i + 1) % messages.length;
+      }
+    } else {
+      display.textContent = currentText.substring(0, j++);
+      if (j > currentText.length + 10) {
+        isDeleting = true;
+      }
+    }
+
+    setTimeout(typewriter, isDeleting ? 60 : 100);
+  };
+
+  typewriter();
+</script>
+
+<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
+<script>
+  AOS.init();
+</script>
+
+
+<script>
+  const toggleBtn = document.getElementById("theme-toggle");
+
+  toggleBtn.addEventListener("click", () => {
+    document.body.classList.toggle("dark-mode");
+
+    // Change icon based on mode
+    if (document.body.classList.contains("dark-mode")) {
+      toggleBtn.textContent = "☀️";
+    } else {
+      toggleBtn.textContent = "🌙";
+    }
+  });
+</script>
+
+<!-- Back to Top Button -->
+<button id="backToTopBtn" title="Go to top">↑</button>
+<script>
+  // Show button on scroll
+  const backToTopBtn = document.getElementById("backToTopBtn");
+
+  window.onscroll = function () {
+    if (document.body.scrollTop > 200 || document.documentElement.scrollTop > 200) {
+      backToTopBtn.style.display = "block";
+    } else {
+      backToTopBtn.style.display = "none";
+    }
+  };
+
+  // Scroll to top when clicked
+  backToTopBtn.addEventListener("click", () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  });
+</script>
+
+</body>
+</html>
+  

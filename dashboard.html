@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>I TECH Dashboard</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background-color: #f0f4f8;
+      text-align: center;
+      padding: 40px;
+    }
+
+    h1 {
+      color: #333;
+    }
+
+    .btn-container {
+      margin-top: 30px;
+    }
+
+    .btn {
+      padding: 15px 30px;
+      margin: 10px;
+      background-color: #007bff;
+      color: white;
+      border: none;
+      border-radius: 8px;
+      cursor: pointer;
+      font-size: 16px;
+      transition: background-color 0.2s ease;
+    }
+
+    .btn:hover {
+      background-color: #0056b3;
+    }
+
+    .logout {
+      background-color: #dc3545;
+    }
+
+    .logout:hover {
+      background-color: #a71d2a;
+    }
+  </style>
+</head>
+<body>
+  <h1>Welcome to the I TECH Dashboard 👋</h1>
+  <p>Choose an action below:</p>
+
+  <div class="btn-container">
+    <button class="btn" onclick="goTo('profile.html')">🧑 Profile</button>
+    <button class="btn" onclick="goTo('projects.html')">📂 Projects</button>
+    <button class="btn" onclick="goTo('sales.html')">💰 Sales</button>
+    <button class="btn logout" onclick="logout()">🚪 Logout</button>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+  <script>
+    // Your Firebase Config (same as before)
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSyYkBCEZH5L-5PSGDq32K97sT-BdBNrc",
+      authDomain: "i-tech-68f7e.firebaseapp.com",
+      projectId: "i-tech-68f7e",
+      storageBucket: "i-tech-68f7e.appspot.com",
+      messagingSenderId: "992808610611",
+      appId: "1:992808610611:web:7f8415b903605138452c46",
+      measurementId: "G-G0MWVD28GE"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+    const auth = firebase.auth();
+
+    // Redirect if not logged in
+    auth.onAuthStateChanged(user => {
+      if (!user) {
+        window.location.href = "index.html";
+      }
+    });
+
+    function logout() {
+      auth.signOut().then(() => {
+        window.location.href = "index.html";
+      });
+    }
+
+    function goTo(page) {
+      window.location.href = page;
+    }
+  </script>
+</body>
+</html>

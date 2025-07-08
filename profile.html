@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Profile | I TECH</title>
+  <style>
+    body {
+      font-family: 'Segoe UI', sans-serif;
+      background: #e0e5ec;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      height: 100vh;
+      text-align: center;
+    }
+    .card {
+      background: #fff;
+      padding: 30px;
+      border-radius: 12px;
+      box-shadow: 0 0 20px rgba(0,0,0,0.1);
+    }
+    h2 {
+      margin-bottom: 20px;
+    }
+    .btn {
+      margin-top: 20px;
+      padding: 10px 20px;
+      background: #007bff;
+      color: white;
+      border: none;
+      border-radius: 6px;
+      cursor: pointer;
+      text-decoration: none;
+    }
+  </style>
+</head>
+<body>
+
+  <div class="card">
+    <h2>User Profile</h2>
+    <p><strong>Email:</strong> <span id="userEmail">Loading...</span></p>
+    <a class="btn" href="dashboard.html">← Back to Dashboard</a>
+  </div>
+
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+
+  <script>
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSyYkBCEZH5L-5PSGDq32K97sT-BdBNrc",
+      authDomain: "i-tech-68f7e.firebaseapp.com",
+      projectId: "i-tech-68f7e",
+      storageBucket: "i-tech-68f7e.appspot.com",
+      messagingSenderId: "992808610611",
+      appId: "1:992808610611:web:7f8415b903605138452c46",
+      measurementId: "G-G0MWVD28GE"
+    };
+
+    firebase.initializeApp(firebaseConfig);
+
+    firebase.auth().onAuthStateChanged((user) => {
+      if (user) {
+        document.getElementById("userEmail").textContent = user.email;
+      } else {
+        // Not logged in
+        window.location.href = "index.html";
+      }
+    });
+  </script>
+</body>
+</html>

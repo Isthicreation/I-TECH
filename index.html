@@ -1,178 +1,179 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600&display=swap" rel="stylesheet">
-<!-- AOS Scroll Animation Library -->
-<link href="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Login | I TECH</title>
   <style>
-  html {
-    scroll-behavior: smooth;
-  }
-</style>
+    body {
+      background: #e0e5ec;
+      font-family: 'Segoe UI', sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
 
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>I TECH - Innovating the Future</title>
-  <link rel="stylesheet" href="style.css">
+    .login-container {
+      background: #e0e5ec;
+      padding: 40px;
+      border-radius: 20px;
+      box-shadow: 9px 9px 16px #a3b1c6,
+                  -9px -9px 16px #ffffff;
+      width: 320px;
+      text-align: center;
+    }
+
+    .login-container h2 {
+      margin-bottom: 20px;
+      color: #333;
+    }
+
+    input {
+      width: 100%;
+      padding: 12px;
+      margin: 10px 0;
+      border: none;
+      border-radius: 12px;
+      background: #e0e5ec;
+      box-shadow: inset 4px 4px 6px #c3cad3,
+                  inset -4px -4px 6px #ffffff;
+      outline: none;
+    }
+
+    .btn {
+      width: 100%;
+      padding: 12px;
+      margin-top: 20px;
+      background: #e0e5ec;
+      border: none;
+      border-radius: 12px;
+      font-weight: bold;
+      box-shadow: 4px 4px 10px #c1c9d6,
+                  -4px -4px 10px #ffffff;
+      cursor: pointer;
+    }
+
+    .btn:hover {
+      background: #d1d9e6;
+    }
+
+    .tab-buttons {
+      display: flex;
+      justify-content: space-around;
+      margin-bottom: 20px;
+    }
+
+    .tab-buttons button {
+      padding: 10px 20px;
+      background: #e0e5ec;
+      border: none;
+      border-radius: 12px;
+      box-shadow: 4px 4px 10px #c1c9d6,
+                  -4px -4px 10px #ffffff;
+      cursor: pointer;
+    }
+
+    .hidden {
+      display: none;
+    }
+  </style>
 </head>
 <body>
 
-  <!-- Header Section -->
- <header>
-  <div class="logo">
-    <img src="ChatGPT Image Jul 5, 2025, 04_02_33 PM.png" alt="I TECH Logo">
-    <h1>I TECH</h1>
-  </div>
-  <nav>
-    <ul>
-      <li><a href="index.html">Home</a></li>
-      <li><a href="services.html">Services</a></li>
-      <li><a href="about.html">About</a></li>
-      <li><a href="contact.html">Contact</a></li>
-      <a href="projects.html">Portfolio</a>
-
-    </ul>
-  </nav>
-</header>
-
-  <!-- Hero Section -->
-  <section class="hero">
-    <h2>Innovating the Future</h2>
-    <p>We build websites, software, and mobile apps that drive success.</p>
-    <a href="#contact" class="btn">Get in Touch</a>
-  </section>
-  <!-- Hero Section -->
-<section class="hero-banner">
-  <img src="ChatGPT Image Jul 5, 2025, 09_24_47 PM.png" alt="I TECH Hero Banner">
-  <h1 class="typewriter-text"></h1>
-
-</section>
-
-<section class="testimonials">
-  <h2>What Our Clients Say</h2>
-
-  <div class="testimonial-container">
-    <!-- Testimonial 1 -->
-    <div class="testimonial-card" data-aos="fade-up">
-      <p>"I TECH helped us build a modern, fast website. The team was professional and responsive!"</p>
-      <h4>John D.</h4>
-      <span>Startup CEO</span>
+  <div class="login-container">
+    <div class="tab-buttons">
+      <button onclick="showLogin()">Login</button>
+      <button onclick="showRegister()">Register</button>
     </div>
 
-    <!-- Testimonial 2 -->
-    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="100">
-      <p>"The mobile app they delivered was top quality — exactly what our business needed."</p>
-      <h4>Sarah K.</h4>
-      <span>App Client</span>
+    <!-- Login Form -->
+    <div id="loginForm">
+      <h2>Login</h2>
+      <input type="email" id="loginEmail" placeholder="Email" required />
+      <input type="password" id="loginPassword" placeholder="Password" required />
+      <button class="btn" onclick="loginUser()">🔐 Login</button>
     </div>
 
-    <!-- Testimonial 3 -->
-    <div class="testimonial-card" data-aos="fade-up" data-aos-delay="200">
-      <p>"Reliable, creative, and fast. Highly recommend I TECH for any software project!"</p>
-      <h4>Ali M.</h4>
-      <span>Business Owner</span>
+    <!-- Register Form -->
+    <div id="registerForm" class="hidden">
+      <h2>Register</h2>
+      <input type="text" id="registerName" placeholder="Your Name" required />
+      <input type="email" id="registerEmail" placeholder="Email" required />
+      <input type="password" id="registerPassword" placeholder="Password" required />
+      <button class="btn" onclick="registerUser()">📝 Register</button>
     </div>
   </div>
-</section>
 
+  <!-- Firebase SDK -->
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-app-compat.js"></script>
+  <script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
 
-<section class="home-services fade-in">...</section>
-
-
-
-  <!-- Services Section -->
-  <section class="services">
-    <h2>Our Services</h2>
-    <div class="service-box">
-      <h3>Web Development</h3>
-      <p>Modern, responsive websites tailored to your business needs.</p>
-    </div>
-    <div class="service-box">
-      <h3>Software Development</h3>
-      <p>Custom software solutions for desktop and enterprise use.</p>
-    </div>
-    <div class="service-box">
-      <h3>Mobile App Development</h3>
-      <p>Android and iOS apps built for performance and design.</p>
-    </div>
-  </section>
-
-  <!-- Footer -->
-  <footer>
-    <p>&copy; 2025 I TECH. All rights reserved.</p>
-  </footer>
   <script>
-  const faders = document.querySelectorAll('.fade-in');
+    const firebaseConfig = {
+      apiKey: "AIzaSyCSyYkBCEZH5L-5PSGDq32K97sT-BdBNrc",
+      authDomain: "i-tech-68f7e.firebaseapp.com",
+      projectId: "i-tech-68f7e",
+      storageBucket: "i-tech-68f7e.appspot.com",
+      messagingSenderId: "992808610611",
+      appId: "1:992808610611:web:7f8415b903605138452c46",
+      measurementId: "G-G0MWVD28GE"
+    };
 
-  const appearOptions = {
-    threshold: 0.1,
-    rootMargin: "0px 0px -50px 0px"
-  };
+    firebase.initializeApp(firebaseConfig);
+  </script>
 
-  const appearOnScroll = new IntersectionObserver(function(entries, observer) {
-    entries.forEach(entry => {
-      if (!entry.isIntersecting) return;
-      entry.target.classList.add("appear");
-      observer.unobserve(entry.target);
-    });
-  }, appearOptions);
+  <script>
+    const loginForm = document.getElementById("loginForm");
+    const registerForm = document.getElementById("registerForm");
 
-  faders.forEach(fader => {
-    appearOnScroll.observe(fader);
-  });
-</script>
-
-<!-- WhatsApp Chat Button -->
-<a href="https://wa.me/94778680628" class="whatsapp-float" target="_blank">
-  <img src="https://img.icons8.com/color/48/000000/whatsapp--v1.png" alt="WhatsApp Chat">
-</a>
-
-
-<script>
-  const messages = [
-    "We Build Websites 💻",
-    "We Build Software ⚙️",
-    "We Build Mobile Apps 📱"
-  ];
-  
-  let i = 0;
-  let j = 0;
-  let currentText = "";
-  let isDeleting = false;
-
-  const typewriter = () => {
-    const display = document.querySelector(".typewriter-text");
-
-    if (!display) return;
-
-    currentText = messages[i];
-
-    if (isDeleting) {
-      display.textContent = currentText.substring(0, j--);
-      if (j < 0) {
-        isDeleting = false;
-        i = (i + 1) % messages.length;
-      }
-    } else {
-      display.textContent = currentText.substring(0, j++);
-      if (j > currentText.length + 10) {
-        isDeleting = true;
-      }
+    function showLogin() {
+      loginForm.classList.remove("hidden");
+      registerForm.classList.add("hidden");
     }
 
-    setTimeout(typewriter, isDeleting ? 60 : 100);
-  };
+    function showRegister() {
+      loginForm.classList.add("hidden");
+      registerForm.classList.remove("hidden");
+    }
 
-  typewriter();
-</script>
+    function registerUser() {
+      const name = document.getElementById("registerName").value;
+      const email = document.getElementById("registerEmail").value;
+      const password = document.getElementById("registerPassword").value;
 
-<script src="https://cdn.jsdelivr.net/npm/aos@2.3.4/dist/aos.js"></script>
-<script>
-  AOS.init();
-</script>
+      firebase.auth().createUserWithEmailAndPassword(email, password)
+        .then((userCredential) => {
+          const user = userCredential.user;
 
+          return user.updateProfile({
+            displayName: name
+          });
+        })
+        .then(() => {
+          alert("✅ Registration successful!");
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("❌ " + error.message);
+        });
+    }
+
+    function loginUser() {
+      const email = document.getElementById("loginEmail").value;
+      const password = document.getElementById("loginPassword").value;
+
+      firebase.auth().signInWithEmailAndPassword(email, password)
+        .then(() => {
+          alert("✅ Login successful!");
+          window.location.href = "dashboard.html";
+        })
+        .catch((error) => {
+          alert("❌ " + error.message);
+        });
+    }
+  </script>
 
 </body>
 </html>
-  
