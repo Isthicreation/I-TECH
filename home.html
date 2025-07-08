@@ -35,6 +35,8 @@
       <li><a href="services.html">Services</a></li>
       <li><a href="about.html">About</a></li>
       <li><a href="contact.html">Contact</a></li>
+      <a href="dashboard.html" class="btn">Go to Dashboard</a>
+
       <a href="projects.html">Portfolio</a>
 
     </ul>
@@ -212,6 +214,17 @@
     window.scrollTo({ top: 0, behavior: "smooth" });
   });
 </script>
+
+<script src="https://www.gstatic.com/firebasejs/10.12.2/firebase-auth-compat.js"></script>
+<script>
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (!user) {
+      // Not logged in, redirect to login page
+      window.location.href = "index.html";
+    }
+  });
+</script>
+
 
 </body>
 </html>

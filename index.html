@@ -171,6 +171,15 @@
         });
     }
   </script>
+  <script>
+  firebase.auth().onAuthStateChanged(function(user) {
+    if (user) {
+      // Already logged in, send to home
+      window.location.href = "home.html";
+    }
+  });
+</script>
+
 
 </body>
 </html>
