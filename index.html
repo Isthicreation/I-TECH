@@ -153,7 +153,7 @@
         })
         .then(() => {
           alert("✅ Registration successful!");
-          window.location.href = "dashboard.html";
+          window.location.href = "home.html";
         })
         .catch((error) => {
           alert("❌ " + error.message);
@@ -167,7 +167,7 @@
       firebase.auth().signInWithEmailAndPassword(email, password)
         .then(() => {
           alert("✅ Login successful!");
-          window.location.href = "dashboard.html";
+          window.location.href = "home.html";
         })
         .catch((error) => {
           alert("❌ " + error.message);
